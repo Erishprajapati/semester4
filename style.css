@@ -1,25 +1,17 @@
-/* Add some margin to the bottom of the nav */
 nav {
-    margin-bottom: 20px;
-}
-
-/* Style the links in the navigation bar */
-nav a {
+    background-color: rgb(red, green, blue)
+  }
+  
+  nav li {
     display: inline-block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
+    padding: 15px 20px;
+  }
+  
+  nav li a {
+    color: #fff;
     text-decoration: none;
-}
-
-/* Change the color of links on hover */
-nav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Add a color to the active/current link */
-nav a.active {
-    background-color: #4CAF50;
-    color: white;
-}
+  }
+  
+  nav li:hover {
+    background-color: #444;
+  }
