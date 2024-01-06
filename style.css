@@ -1,17 +1,18 @@
-nav {
-    background-color: rgb(red, green, blue)
-  }
-  
-  nav li {
-    display: inline-block;
-    padding: 15px 20px;
-  }
-  
-  nav li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  nav li:hover {
-    background-color: #444;
-  }
+.nav-one {
+  background-color: whitesmoke;
+  text-align:right;
+}
+
+.nav-one li {
+  display: inline-block;
+  padding: 15px 20px;
+}
+
+.nav-one li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-one li:hover {
+  background-color: #444;
+}
