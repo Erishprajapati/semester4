@@ -10,39 +10,56 @@
     font-family: Arial, sans-serif;
 }
 
+body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form{
+            width:300px;
+            margin:0 auto;
+        }
+        h2{
+            text-align: center;
+            color:black;
+        }
+        label{
+            display:block;
+            margin-top:10px;
+        }
+        input[type="text"],
+input[type="number"],
+input[type="address"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    outline:none;
+}
+
+input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+    input[type="button"]:hover {
+    background-color: #45a049;
+}
 .container {
-    text-align: center;
-    width: 350px;
+    text-align:left;
+    width: 650px;
+    height:700px;
     padding: 26px;
     background-color: cadetblue;
     margin: 0 auto;
     margin-top: 100px;
     border: 1px solid black;
     border-radius: 4px;
-}
-
-input[type=text], input[type=password] {
-    width: 350px;
-    padding: 16px 30px;
-    margin-top: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-input[type=submit] {
-    background-color: black;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-input[type=submit]:hover {
-    opacity: 0.8;
-    color:whitesmoke;
 }
     </style>
 </head>
