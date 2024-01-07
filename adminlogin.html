@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    width: 350px;
+    padding: 26px;
+    background-color: cadetblue;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+input[type=text], input[type=password] {
+    width: 350px;
+    padding: 12px 20px;
+    margin-top: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type=submit]:hover {
+    opacity: 0.8;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Login</h2>
+     <form>
+        <label for="Admin">Admin:</label><br>
+        <input type="text"  id ="username" name="Username"></br>
+        <label for="Email-id">Email:</label><br>
+        <input type="text"  id ="email" name="email"></br>
+        <label for="password">Password:</label><br>
+        <input type="passowrd"  id ="password" name="password"></br>
+        <label for="number">Number:</label></br>
+        <input type="phone" id="number" name="number"></br>
+        <input type="submit" value="login">
+     </form>
+     </div>
+</body>
+</html>
