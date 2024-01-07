@@ -26,7 +26,7 @@
 .nav-two a {
   float: right;
   display: block;
-  color: #f2f2f2;
+  color: whitesmoke;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -34,3 +34,9 @@
 .nav-two a:hover {
   background-color: #ddd;
   color: black;
+}
+.div-image-box{
+  width:10px;
+  position:absolute;
+  border:2 px solid black;
+}
