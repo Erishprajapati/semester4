@@ -42,5 +42,6 @@
 .div-container {
 position:abolsute;
 background-repeat: no-repeat;
-
+background-attachment: fixed;
+background-position: center;
 }
