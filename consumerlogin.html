@@ -26,7 +26,9 @@
 input[type="number"],
 input[type="address"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+select[name="gender"]
+ {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -51,7 +53,6 @@ input[type="button"] {
     width: 650px;
     height:700px;
     padding: 26px;
-    padding-down:10px;
     background-color: cadetblue;
     margin: 0 auto;
     margin-top: 100px;
@@ -66,12 +67,17 @@ input[type="button"] {
     <div class="container">
         <form>
             <h2>User Sign-in</h2>
+            <form action="login.php" method="post">
             <label for="Uername">Username:</label><br>
             <input type="text" id="username" name="username"><br> 
             <label for="Number">Phone number:</label><br>
             <input type="number" id="number" name="number"><br>
             <label for="adrress">Address:</label><br>
             <input type="address" id="address" name="adrress"><br>
+            <label for="gender">Gender:</label> <br>
+            <select name="gender" id="gender"> <br>
+            <option value="male">Male</option> <br>
+            <option value="female">Female</option> </select> 
             <label for="Email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
             <label for="password">Password:</label><br>
