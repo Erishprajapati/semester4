@@ -1,3 +1,30 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $username = $_POST['username'];
+    $num = $_POST['number'];
+    $address = $_POST['add'];
+    $gender = $_POST['gender'];
+    $gmail = $_POST['mail'];
+    $password = $_POST['pass'];
+
+    // Connect to the MySQL database
+    $con = mysqli_connect("localhost", "username", "password", "bakerymanagment");
+
+    // Check connection
+    if (!$con) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    if (!empty($gmail) && !empty($password) && !is_numeric($gmail)) {
+        $query = "insert into form(username,number,gender,address,email,password) values('$username','$num','$gender','$address','$gmail','$password')";
+        mysqli_query($con, $query);
+    }
+    echo ('Successfully register');
+} else {
+    echo ('Please Enter some valid information');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +32,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consumer</title>
-    <style>
+        <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -62,12 +89,12 @@ input[type="button"] {
 
    
     </style>
+
 </head>
 <body>
     <div class="container">
-        <form>
+        <form action="register.php" method="post">
             <h2>User Sign-in</h2>
-            <form action="login.php" method="post">
             <label for="Uername">Username:</label><br>
             <input type="text" id="username" name="username"><br> 
             <label for="Number">Phone number:</label><br>
