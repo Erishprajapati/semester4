@@ -13,3 +13,13 @@
     padding:20px;
     padding-bottom:20px;
 }
+.container .content{
+    text-align: center;
+}
+nav{
+    text-align: right;
+    padding:10px;
+    border:3px solid black;
+    text-decoration: none;
+    background-color:
+}
