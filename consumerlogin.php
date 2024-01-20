@@ -105,8 +105,6 @@ input[type="button"] {
             <select name="gender" id="gender"> <br>
             <option value="male">Male</option> <br>
             <option value="female">Female</option> </select> 
-            <label for="Email">Email:</label><br>
-            <input type="email" id="email" name="email"><br>
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password"><br><br>
             <input type="button" value="login"><br>
