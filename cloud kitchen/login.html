@@ -6,39 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloud Kitchen</title>
     <link rel="stylesheet" href="main.css">
-    <style>
-        h2{
-            text-align: center;
-            color: rgb(85, 114, 205);
-            font-family: sans-serif;
-
-        }
-     form { width: 100%; max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1); } label { display: block; margin-bottom: 5px; } input[type="text"], input[type="number"], input[type="password"], select { width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; outline: none; } select { height: 40px; } input[type="submit"] { width: 100%; padding: 10px; border: none; background-color: #4CAF50; color: white; cursor: pointer; } input[type="submit"]:hover { background-color:rgb(85,114,201); } </style>
+    
 </head>
 <body>
-    <form action="post" method="post">
+    <form action="insert.php" method="POST">
         <h2>Login/Signup</h2>
         <label for="name">Username:</label>
-        <input type="text" name="name">
+        <input type="text" name="name" required>
         <br>
         <label for="Number">Number:</label>
-        <input type="number" name="number">
+        <input type="number" name="number" required>
         <br>
         <label for="Genders">Genders:</label>
-        <select id="genders" name="genders">
+        <select id="genders" name="genders" required>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
         </select><br>
         <label for="Location">Location:</label>
-        <select id="location" name="location">
+        <select id="location" name="location" required>
             <option value="city1">Kathmandu</option>
             <option value="city2">Lalitpur</option>
             <option value="city3">Bhaktapur</option>
         </select><br>
         <label for="password">Password:</label>
-        <input type="password">
+        <input type="password" name="password" required>
         <input type="button" value="Submit">
+        <h3>Need an account?<a href="#signup.html">Signup</a></h3>
     </div>
     </form>
     <footer>
