@@ -19,7 +19,7 @@ if (!empty($username) || !empty($number) || !empty($gender) || !empty($location)
         die('Connect Error(' . mysqli_connect_errno() . ')' . mysqli_connect_error());
     } else {
         $SELECT = "SELECT password FROM Register WHERE password = ? LIMIT 1";
-        $INSERT = "INSERT INTO Register (username, number, gender, location, password) VALUES (?, ?, ?, ?, ?)";
+        $INSERT = "INSERT INTO Register (username, number, gender, location, email, password) VALUES (?, ?, ?, ?, ?)";
 
         // prepare statement
         $stmt = $conn->prepare($SELECT);
@@ -27,28 +27,28 @@ if (!empty($username) || !empty($number) || !empty($gender) || !empty($location)
         $stmt->execute();
         $stmt->bind_result($password);
         $stmt->store_result();
-        $rnum = $stmt->num_rows();
+        $rnum = mysqli_num_rows($stmt);
         if ($rnum == 0) {
             $stmt->close();
 
             $stmt = $conn->prepare($INSERT);
-            $stmt->bind_param("sssss", $username, $number, $gender, $location, $password); // Fix the typo here
-            $stmt = $conn->prepare($INSERT);
-$stmt->bind_param("sssss", $username, $number, $gender, $location, $password);
-try {
-    $stmt->execute();
-    echo "New record inserted successfully";
-} catch (mysqli_sql_exception $e) {
-    if ($e->getCode() == 22001) {
-        // Handle the case where data is too long for a column
-        echo "Error: Data too long for column.";
-    } else {
-        // Handle other database-related errors
-        echo "Error: " . $e->getMessage();
+            $stmt->bind_param("sssss", $username, $number, $gender, $location, $password);
+            try {
+                $stmt->execute();
+                echo "New record inserted successfully";
+            } catch (mysqli_sql_exception $e) {
+                if ($e->getCode() == 22001) {
+                    // Handle the case where data is too long for a column
+                    echo "Error: Data too long for column.";
+                } else {
+                    // Handle other database-related errors
+                    echo "Error: " . $e->getMessage();
+                }
+            }
+
+            $stmt->close();
+            $conn->close();
+        }
     }
 }
-
-$stmt->close();
-$conn->close();
-  }
 ?>
