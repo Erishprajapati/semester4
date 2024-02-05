@@ -4,40 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Kitchen</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Login</title>
 </head>
 <body>
-    <form action="insert.php" method="POST">
-        <h2>Login/Signup</h2>
-        <label for="name">Username:</label>
-        <input type="text" name="name" required>
-        <br>
-        <label for="Number">Number:</label>
-        <input type="number" name="number" required>
-        <br>
-        <label for="Genders">Genders:</label>
-        <select id="genders" name="genders" required>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-        </select><br>
-        <label for="Location">Location:</label>
-        <select id="location" name="location" required>
-            <option value="city1">Kathmandu</option>
-            <option value="city2">Lalitpur</option>
-            <option value="city3">Bhaktapur</option>
-        </select><br>
-        <label for="email">Email</label>
-        <input type="email" name="email" required><br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
-        <input type="submit" value="Submit">
-        <h3>Need an account?<a href="#signup.html">Signup</a></h3>
-    </div>
+    <form>
+        <div>
+            <label for="Name">Name:</label><br>
+            <input type="text" name="name"><br>
+           <label for="Gender">Gender:</label><br>
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female<br>
+            <label for="Phone Number">Phone Number:</label><br>
+             <input type="tel" name="phone" id="phone"> <br>
+            <label for="Email">Email:</label><br>
+            <input type="text" name="email"><br>
+            <label for="Password">Password:</label><br>
+            <input type="password" name="password"><br>
+            <input type="submit" value="Login"></submit>
+        </div>
     </form>
-    <footer>
-        @Cloud Kitchen
-    </footer>
 </body>
 </html>
