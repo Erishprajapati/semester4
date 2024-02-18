@@ -1,7 +1,7 @@
 *{
     margin: 0 0;
     padding:0 0;
-    font-family: Arial, Helvetica, Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container{
@@ -23,7 +23,12 @@
 a{
     color:slateblue;
     text-decoration: none;
+}
 
+.btn{
+    padding:1%;
+    border:none;
+    font-size: 1rem;
 }
 /** css for navbar section */
 .logo{
@@ -47,3 +52,23 @@ a{
     background-repeat:no-repeat;
     background-position: center;
 }
+.container-two{
+    opacity: 0.8;
+    background-position: 0%;
+    overflow: hidden;
+}
+.fit-image {
+    width: 100%; /* Ensure the image takes the full width of its container */
+    height: 100%; /* Ensure the image takes the full height of its container */
+    object-fit: cover; /* Adjust how the image is resized to cover the container */
+  }
+  .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust background color and opacity */
+    color: white; /* Adjust text color */
+    padding: 10px; /* Adjust padding */
+    text-align: center;
+  }
