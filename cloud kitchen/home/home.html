@@ -4,48 +4,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="home.css">
-    <style>
-        .container-one {
-    width: 100%;
-    background-color: #f0f0f0;
-    padding: 10px;
-}
-
-nav {
-    text-align: center;
-}
-
-nav a {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 0 10px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: #ddd;
-}
-
-    </style>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="../styles/home.css">
 </head>
 <body>
-    <div class="container-one">
-        <nav>
-            <a href="#home.html">Home</a>
-            <a href="#Special.html">Special</a>
-            <a href="#food.html">Food</a>
-            <a href="#drinks.html">Drinks</a>
-        </nav>
-        </div>
-     <div class="container-two">
-        <img src="fourthsem/images/cloud.jpeg" width="100px">
+    <section class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="../images/logo.jpeg " alt="logo" class="img-responsive">
+            </div>
+            <div class="menu text-right">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>     
+                     </li>
+                     <li>
+                        <a href="#">Fooods</a>
+                     </li>
+                     <li>
+                        <a href="#">Contact</a>
+                     </li>
+                </ul>
+            </div>
+            </div>
+    </section>
 
+
+    <section class="food-search">
+        <div class="container">
+            <h1>Food Search</h1>
+            <form action="">
+                <input type="search" name=""search" placeholder="Search for food..">
+                <input type="submit" name="submit" value="Search">
+            </form>
      </div>
-    </body>
+     </section>
+
+     <section class="categories">
+        <div class="container">
+            <h2>Category</h2>
+
+            <div class="box-3">
+                Box 1
+            </div>
+
+            <div class="box-3">
+                Box 2 
+             </div>
+
+             <div class="box-3">
+                 Box 3
+             </div>
+        </div>
+        </section>
+
+        <!--Food menu section starts here-->
+        <section class="food-menu">
+            <div class="container">
+                <h2>Explore Foods</h2>
+            </div>
+        </section>
+</body>
 </html>
