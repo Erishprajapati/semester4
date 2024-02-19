@@ -16,6 +16,12 @@
 .text-right{
     text-align: right;
 }
+.text-center{
+    text-align: center;
+}
+.text-white{
+    color:white;
+}
 .clearfix{
     clear:both;
     float:none;
@@ -24,11 +30,40 @@ a{
     color:slateblue;
     text-decoration: none;
 }
+a:hover{
+    color:slateblue;
+}
 
 .btn{
     padding:1%;
     border:none;
     font-size: 1rem;
+    border-radius: 5px;
+}
+.btn-primary{
+    background-color: slateblue;
+    color:white;
+    cursor:pointer;
+}
+
+.btn-primary:hover{
+    color:#2f3542;
+}
+h2{
+    color:#2f3542;
+}
+h3{
+    font-size: 1.5rem;
+}
+
+.float-container{
+    position: relative;
+}
+.float-text{
+    position: absolute;
+    bottom:50px;
+    left: 40%
+
 }
 /** css for navbar section */
 .logo{
@@ -46,29 +81,3 @@ a{
     font-weight: bold;
 }
 
-.food-search{
-    background-image: url(../images/background2.jpeg);
-    background-size: cover;
-    background-repeat:no-repeat;
-    background-position: center;
-}
-.container-two{
-    opacity: 0.8;
-    background-position: 0%;
-    overflow: hidden;
-}
-.fit-image {
-    width: 100%; /* Ensure the image takes the full width of its container */
-    height: 100%; /* Ensure the image takes the full height of its container */
-    object-fit: cover; /* Adjust how the image is resized to cover the container */
-  }
-  .caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Adjust background color and opacity */
-    color: white; /* Adjust text color */
-    padding: 10px; /* Adjust padding */
-    text-align: center;
-  }
