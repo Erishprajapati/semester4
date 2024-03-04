@@ -1,4 +1,6 @@
-<?php include('partials/menu.php'); ?>
+<?php 
+echo'<a href="../fronts/menu.php"></a>';
+ ?>
 
 <div class="main-content">
     <div class="wrapper">
@@ -52,7 +54,9 @@
     </div>
 </div>
 
-<?php include('partials/footer.php'); ?>
+<?php
+echo'<a href="../fronts/menu.php"></a>';
+?>
 
 
 <?php 
