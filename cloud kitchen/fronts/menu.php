@@ -1,4 +1,4 @@
-<?php include('config/constants.php'); ?>
+<?php include('database/constants.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@
     <title>Restaurant Website</title>
 
     <!-- Link our CSS file -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <div class="container">
             <div class="logo">
                 <a href="#" title="Logo">
-                    <img src="images/logo.png" alt="Restaurant Logo" class="img-responsive">
+                    <img src="../images/logo.png" alt="Restaurant Logo" class="img-responsive">
                 </a>
             </div>
 
