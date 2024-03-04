@@ -1,6 +1,6 @@
 <?php 
 echo'<a href="../fronts/menu.php"></a>';
- ?>
+?>
 
 <div class="main-content">
     <div class="wrapper">
@@ -101,7 +101,7 @@ echo'<a href="../fronts/menu.php"></a>';
             //Create a Session Variable to Display Message
             $_SESSION['add'] = "<div class='error'>Failed to Add Admin.</div>";
             //Redirect Page to Add Admin
-            header("location:".SITEURL.'admin/add-admin.php');
+            header("location:".SITEURL.'../crud/add-admin.php');
         }
 
     }
