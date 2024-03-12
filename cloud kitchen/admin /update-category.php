@@ -1,4 +1,4 @@
-<?php include('partials/menu.php'); ?>
+<?php include('../fronts/menu.php'); ?>
 
 <div class="main-content">
     <div class="wrapper">
@@ -37,14 +37,14 @@
                 {
                     //redirect to manage category with session message
                     $_SESSION['no-category-found'] = "<div class='error'>Category not Found.</div>";
-                    header('location:'.SITEURL.'admin/manage-category.php');
+                    header('location:'.SITEURL.'../food/manage-category.php');
                 }
 
             }
             else
             {
                 //redirect to Manage CAtegory
-                header('location:'.SITEURL.'admin/manage-category.php');
+                header('location:'.SITEURL.'../food/manage-category.php');
             }
         
         ?>
@@ -164,7 +164,7 @@
                             //SEt message
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload Image. </div>";
                             //Redirect to Add CAtegory Page
-                            header('location:'.SITEURL.'admin/manage-category.php');
+                            header('location:'.SITEURL.'../food/manage-category.php');
                             //STop the Process
                             die();
                         }
@@ -182,7 +182,7 @@
                             {
                                 //Failed to remove image
                                 $_SESSION['failed-remove'] = "<div class='error'>Failed to remove current Image.</div>";
-                                header('location:'.SITEURL.'admin/manage-category.php');
+                                header('location:'.SITEURL.'../food/manage-category.php');
                                 die();//Stop the Process
                             }
                         }
@@ -217,13 +217,13 @@
                 {
                     //Category Updated
                     $_SESSION['update'] = "<div class='success'>Category Updated Successfully.</div>";
-                    header('location:'.SITEURL.'admin/manage-category.php');
+                    header('location:'.SITEURL.'../food/manage-category.php');
                 }
                 else
                 {
                     //failed to update category
                     $_SESSION['update'] = "<div class='error'>Failed to Update Category.</div>";
-                    header('location:'.SITEURL.'admin/manage-category.php');
+                    header('location:'.SITEURL.'../food/manage-category.php');
                 }
 
             }
@@ -232,5 +232,3 @@
 
     </div>
 </div>
-
-<?php include('partials/footer.php'); ?>

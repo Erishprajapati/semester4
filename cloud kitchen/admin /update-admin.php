@@ -1,4 +1,4 @@
-<?php include('partials/menu.php'); ?>
+<?php include('../fronts/menu.php'); ?>
 
 <div class="main-content">
     <div class="wrapper">
@@ -34,7 +34,7 @@
                 else
                 {
                     //Redirect to Manage Admin PAge
-                    header('location:'.SITEURL.'admin/manage-admin.php');
+                    header('location:'.SITEURL.'../food/manage-admin.php');
                 }
             }
         
@@ -98,18 +98,15 @@
             //Query Executed and Admin Updated
             $_SESSION['update'] = "<div class='success'>Admin Updated Successfully.</div>";
             //Redirect to Manage Admin Page
-            header('location:'.SITEURL.'admin/manage-admin.php');
+            header('location:'.SITEURL.'../food/manage-admin.php');
         }
         else
         {
             //Failed to Update Admin
             $_SESSION['update'] = "<div class='error'>Failed to Delete Admin.</div>";
             //Redirect to Manage Admin Page
-            header('location:'.SITEURL.'admin/manage-admin.php');
+            header('location:'.SITEURL.'../food/manage-admin.php');
         }
     }
 
 ?>
-
-
-<?php include('partials/footer.php'); ?>
