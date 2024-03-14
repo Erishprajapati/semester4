@@ -81,7 +81,7 @@
             //User not Available and Login FAil
             $_SESSION['login'] = "<div class='error text-center'>Username or Password did not match.</div>";
             //REdirect to HOme Page/Dashboard
-            header('location:semesterfour/fourth/admin/login.php');
+            header('location:./login.php');
         }
 
 

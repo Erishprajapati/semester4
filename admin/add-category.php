@@ -137,7 +137,7 @@
                             //SEt message
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload Image. </div>";
                             //Redirect to Add CAtegory Page
-                            header('location: semesterfour/fourth/admin/add-category.php');
+                            header('location:./add-category.php');
                             //STop the Process
                             die();
                         }
@@ -167,14 +167,14 @@
                     //Query Executed and Category Added
                     $_SESSION['add'] = "<div class='success'>Category Added Successfully.</div>";
                     //Redirect to Manage Category Page
-                    header('location: semesterfour/fourth/admin/manage-category.php');
+                    header('location:./manage-category.php');
                 }
                 else
                 {
                     //Failed to Add CAtegory
                     $_SESSION['add'] = "<div class='error'>Failed to Add Category.</div>";
                     //Redirect to Manage Category Page
-                    header('location: semesterfour/fourth/admin/add-category.php');
+                    header('location:./add-category.php');
                 }
             }
         

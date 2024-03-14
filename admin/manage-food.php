@@ -7,7 +7,7 @@
         <br /><br />
 
                 <!-- Button to Add Admin -->
-                <a href="admin/add-food.php" class="btn-primary">Add Food</a>
+                <a href="./add-food.php" class="btn-primary">Add Food</a>
 
                 <br /><br /><br />
 
@@ -86,7 +86,7 @@
                                 <tr>
                                     <td><?php echo $sn++; ?>. </td>
                                     <td><?php echo $title; ?></td>
-                                    <td>$<?php echo $price; ?></td>
+                                    <td>Rs<?php echo $price; ?></td>
                                     <td>
                                         <?php  
                                             //CHeck whether we have image or not
@@ -107,8 +107,8 @@
                                     <td><?php echo $featured; ?></td>
                                     <td><?php echo $active; ?></td>
                                     <td>
-                                        <a href="admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>
-                                        <a href="admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
+                                        <a href="./update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>
+                                        <a href="./delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
                                     </td>
                                 </tr>
 
@@ -128,5 +128,3 @@
     </div>
     
 </div>
-
-<?php include('partials/footer.php'); ?>

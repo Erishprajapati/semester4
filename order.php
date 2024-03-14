@@ -153,5 +153,4 @@
 
         </div>
     </section>
-    <!-- fOOD sEARCH Section Ends Here -->
 

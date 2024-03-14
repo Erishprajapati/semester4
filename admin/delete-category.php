@@ -25,7 +25,7 @@
                 //Set the SEssion Message
                 $_SESSION['remove'] = "<div class='error'>Failed to Remove Category Image.</div>";
                 //REdirect to Manage Category page
-                header('location: fourth/admin/manage-category.php');
+                header('location: ./manage-category.php');
                 //Stop the Process
                 die();
             }
@@ -44,14 +44,14 @@
             //SEt Success MEssage and REdirect
             $_SESSION['delete'] = "<div class='success'>Category Deleted Successfully.</div>";
             //Redirect to Manage Category
-            header('location: fourth/admin/manage-category.php');
+            header('location: ./manage-category.php');
         }
         else
         {
             //SEt Fail MEssage and Redirecs
             $_SESSION['delete'] = "<div class='error'>Failed to Delete Category.</div>";
             //Redirect to Manage Category
-            header('location: fourth/admin/manage-category.php');
+            header('location: ./manage-category.php');
         }
  
 
@@ -59,6 +59,6 @@
     else
     {
         //redirect to Manage Category Page
-        header('location: fourth/admin/manage-category.php');
+        header('location: ./manage-category.php');
     }
 ?>
