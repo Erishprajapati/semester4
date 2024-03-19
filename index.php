@@ -159,15 +159,7 @@
             }
             
             ?>
-
-            
-
- 
-
             <div class="clearfix"></div>
-
-            
-
         </div>
 
         <p class="text-center">

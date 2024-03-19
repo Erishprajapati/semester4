@@ -82,26 +82,30 @@
                         
                     </div>
 
-                </fieldset>
-                
-                <fieldset>
-                    <legend>Delivery Details</legend>
-                    <div class="order-label">Full Name</div>
-                    <input type="text" name="full-name" placeholder="  " class="input-responsive" required>
+                 <fieldset>
+                   <legend>Delivery Details</legend>
+                     <div class="order-label">Full Name</div>
+                         <input type="text" name="full-name" placeholder="  " class="input-responsive" required>
 
-                    <div class="order-label">Phone Number</div>
-                    <input type="tel" name="contact" placeholder="  " class="input-responsive" required>
+                     <div class="order-label">Phone Number</div>
+                         <input type="tel" name="contact" placeholder=" " class="input-responsive" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
 
-                    <div class="order-label">Email</div>
-                    <input type="email" name="email" placeholder="  " class="input-responsive" required>
+                     <div class="order-label">Email</div>
+                         <input type="email" name="email" placeholder="  " class="input-responsive" required>
 
-                    <div class="order-label">Address</div>
-                    <textarea name="address" rows="10" placeholder="  " class="input-responsive" required></textarea>
+    <div class="order-label">Address</div>
+    <textarea name="address" rows="10" placeholder="  " class="input-responsive" required></textarea>
 
-                    <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">
-                </fieldset>
+    <div class="order-label">Gender</div>
+    <select name="gender" class="input-responsive" required>
+        <option value="" selected disabled>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
 
-            </form>
+    <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">
+</fieldset>
 
             <?php 
 
@@ -124,7 +128,7 @@
                     $customer_contact = $_POST['contact'];
                     $customer_email = $_POST['email'];
                     $customer_address = $_POST['address'];
-                    echo $customer_address;
+                    header('location: orderplaced.php');;
 
                     
 
@@ -150,7 +154,5 @@
                 }
             
             ?>
-
         </div>
     </section>
-

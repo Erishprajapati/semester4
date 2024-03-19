@@ -16,9 +16,9 @@
     if($res==true)
     {
         //Query Executed Successully and Admin Deleted
-        //echo "Admin Deleted";
+        echo "Admin Deleted";
         //Create SEssion Variable to Display Message
-        $_SESSION['delete'] = "<div class='success'>Admin Deleted Successfully.</div>";
+        $_SESSION['delete'] = "<div class='success'></div>";
         //Redirect to Manage Admin Page
         header('admin/manage-admin.php');
     }

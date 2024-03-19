@@ -29,7 +29,7 @@
                         $image_name = $row['image_name'];
                         ?>
                         
-                        <a href="category-foods.php"?category_id=<?php echo $id; ?>>
+                        <a href="category-foods.php?category_id=<?php echo $id; ?>">
                             <div class="box-3 float-container">
                                 <?php 
                                     if($image_name=="")
@@ -41,9 +41,11 @@
                                     {
                                         //Image Available
                                         ?>
-                                        <img src="images/category/Food_Category_77.jpg"<?php echo "Pizza"; ?> alt="Pizza" class="img-responsive img-curve"
+                                        <img src="images/category/<?php echo $image_name = $row['image_name'];  ?>"<?php echo "Pizza"; ?> alt="Pizza" class="img-responsive img-curve";
+                                        
                                         <?php
                                     }
+                                    
                                 ?>
                                 
 

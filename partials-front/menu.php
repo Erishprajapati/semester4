@@ -34,7 +34,7 @@
                         <a href="foods.php">Foods</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="login.php">Login</a>
                     </li>
                 </ul>
             </div>

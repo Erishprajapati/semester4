@@ -191,7 +191,7 @@
                             //Failed to Upload the image
                             //REdirect to Add Food Page with Error Message
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload Image.</div>";
-                            header('location: admin/add-food.php');
+                            header('location: ./add-food.php');
                             //STop the process
                             die();
                         }
@@ -227,13 +227,13 @@
                 {
                     //Data inserted Successfullly
                     $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
-                    header('location:'.SITEURL.'admin/manage-food.php');
+                    header('location: ./manage-food.php');
                 }
                 else
                 {
                     //FAiled to Insert Data
                     $_SESSION['add'] = "<div class='error'>Failed to Add Food.</div>";
-                    header('location:'.SITEURL.'admin/manage-food.php');
+                    header('location: ./manage-food.php');
                 }
 
                 
@@ -244,5 +244,3 @@
 
     </div>
 </div>
-
-<?php include('partials/footer.php'); ?>

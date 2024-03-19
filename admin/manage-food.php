@@ -99,7 +99,7 @@
                                             {
                                                 //WE Have Image, Display Image
                                                 ?>
-                                                <img src="./images/food/<?php echo $image_name; ?>" width="100px">
+                                                <img src="../images/food/<?php echo $image_name; ?>" width="100px">
                                                 <?php
                                             }
                                         ?>
