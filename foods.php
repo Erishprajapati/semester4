@@ -85,15 +85,9 @@
                     //Food not Available
                     echo "<div class='error'>Food not found.</div>";
                 }
-            ?>
-
-            
-
-            
+            ?>   
 
             <div class="clearfix"></div>
-
-            
 
         </div>
 

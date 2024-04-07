@@ -208,7 +208,7 @@
                             //FAiled to Upload
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload new Image.</div>";
                             //REdirect to Manage Food 
-                            header('location: sadmin/manage-food.php');
+                            header('location: admin/manage-food.php');
                             //Stop the Process
                             die();
                         }

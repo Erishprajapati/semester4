@@ -81,7 +81,7 @@
 
             <div class="clearfix"></div>
         </div>
-    </section>h
+    </section>
     <!-- Categories Section Ends Here -->
 
 

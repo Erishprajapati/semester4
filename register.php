@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
     <div class="container1">
         <div class="register">
             <h1>Register</h1>
             <form method="POST">
-            <div class="order-label">Full Name</div>
-            <input type="text" name="full-name" placeholder=" " class="input-responsive" required>
+            <div class="order-label">Username</div>
+            <input type="text" name="username" placeholder=" " class="input-responsive" required>
 
             <div class="order-label">Phone Number</div>
             <input type="tel" name="contact" placeholder=" " class="input-responsive" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
@@ -38,14 +39,14 @@
 include "./config/constants.php";
 
 if(isset($_POST['submit'])){
-    $fullName = $_POST['full-name'];
+    $username = $_POST['username'];
     $Number = $_POST['contact'];
     $Email = $_POST['email'];
     $Address = $_POST['address'];
     $Gender = $_POST['gender'];
     $Password = $_POST['password'];
 
-    $query = "INSERT INTO tbl_user(fullName, Number, Email, Address, Gender, Password) VALUES ('$fullName', '$Number', '$Email', '$Address', '$Gender', '$Password')";
+    $query = "INSERT INTO tbl_user(username, Number, Email, Address, Gender, Password) VALUES ('$username', '$Number', '$Email', '$Address', '$Gender', '$Password')";
     $result = mysqli_query($conn, $query);
 
     if ($result) {

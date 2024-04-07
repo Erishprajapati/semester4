@@ -9,18 +9,12 @@
                 //Get the Search Keyword
                 // $search = $_POST['search'];
                 $search = mysqli_real_escape_string($conn, $_POST['search']);
-            
             ?>
-
-
             <h2>Foods on Your Search <a href="#" class="text-white">"<?php echo $search; ?>"</a></h2>
 
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
-
-
-
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
@@ -82,7 +76,7 @@
                                 </p>
                                 <br>
 
-                                <a href="#" class="btn btn-primary">Order Now</a>
+                                <a href="order.php?id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
                             </div>
                         </div>
 
@@ -96,13 +90,6 @@
                 }
             
             ?>
-
-            
-
             <div class="clearfix"></div>
-
-            
-
         </div>
-
     </section>
