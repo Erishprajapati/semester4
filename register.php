@@ -15,7 +15,8 @@
             <input type="text" name="username" placeholder=" " class="input-responsive" required>
 
             <div class="order-label">Phone Number</div>
-            <input type="tel" name="contact" placeholder=" " class="input-responsive" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+<input type="tel" name="contact" placeholder=" " class="input-responsive" pattern="[0-9]{7,10}" title="Please enter a valid phone number with 7 to 10 digits" required>
+
 
             <div class="order-label">Email</div>
             <input type="email" name="email" placeholder=" " class="input-responsive" required>
