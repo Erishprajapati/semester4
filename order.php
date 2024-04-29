@@ -68,17 +68,9 @@
                 <input type="text" name="full-name" placeholder="Full Name" class="input-responsive" required>
                 <div class="order-label">Phone Number</div>
             <input type="tel" name="contact" placeholder=" " class="input-responsive" pattern="[0-9]{7,10}" title="Please enter a valid phone number with 7 to 10 digits" required>
-                <div class="order-label">Email</div>
-                <input type="email" name="email" placeholder="Email" class="input-responsive" required>
                 <div class="order-label">Address</div>
                 <textarea name="address" rows="5" placeholder="Address" class="input-responsive" required></textarea>
-                <div class="order-label">Gender</div>
-                <select name="gender" class="input-responsive" required>
-                    <option value="" selected disabled>Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
+
                 <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">
             </fieldset>
         </form>
@@ -171,25 +163,6 @@
             }
             
         }
+
 ?>
 
-<script>
-    function validateForm() {
-        // Get the quantity input element
-        var qtyInput = document.getElementById("qty");
-
-        // Get the quantity value
-        var qtyValue = parseInt(qtyInput.value);
-
-        // Check if quantity is negative
-        if (qtyValue < 0) {
-            // Display an error message
-            alert("Negative values are not acceptable for quantity.");
-            // Prevent form submission
-            return false;
-        }
-
-        // Form validation passed
-        return true;
-    }
-</script>
