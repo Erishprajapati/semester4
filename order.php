@@ -33,7 +33,7 @@
 <section class="food-search">
     <div class="container">
         <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
-        <form action="" method="POST" class="order">
+        <form action="process_order.php" method="POST" class="order">
             <fieldset>
                 <legend>Selected Food</legend>
                 <div class="food-menu-img">
@@ -68,38 +68,3 @@
         </form>
     </div>
 </section>
-
-<?php 
-    if(isset($_POST['submit'])) {
-        // Validate quantity
-        $qty = $_POST['qty'];
-        if ($qty <= 0) {
-            echo "Error: Quantity must be greater than 0";
-            exit;
-        }
-        
-        // Get order details
-        $food = $_POST['food'];
-        $price = $_POST['price'];
-        $qty = $_POST['qty'];
-        $total = $price * $qty;
-        $order_date = date("Y-m-d H:i:s");
-        $status = "Ordered";
-        $customer_name = $_POST['full-name'];
-        $customer_contact = $_POST['contact'];
-        $customer_address = $_POST['address'];
-
-        // Insert order into database
-        $sql = "INSERT INTO tbl_order (food, price, qty, total, order_date, status, customer_name, customer_contact, customer_address) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "siiisssss", $food, $price, $qty, $total, $order_date, $status, $customer_name, $customer_contact, $customer_address);
-        $result = mysqli_stmt_execute($stmt);
-        
-        if ($result) {
-            echo "<script>alert('Order inserted successfully.');</script>";
-        } else {
-            echo "<script>alert('Error inserting order: " . mysqli_error($conn) . "');</script>";
-        }
-    }
-?>

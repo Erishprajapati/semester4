@@ -76,7 +76,7 @@
                                 </p>
                                 <br>
 
-                                <a href="order.php?id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                <a href="order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
                             </div>
                         </div>
 

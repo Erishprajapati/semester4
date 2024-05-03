@@ -24,9 +24,9 @@
 
             <div class="menu text-right">
                 <ul>
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
+                <ul>
+    <li><a href="index.php">Home</a></li>
+
                     <li>
                         <a href="categories.php">Categories</a>
                     </li>

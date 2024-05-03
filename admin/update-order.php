@@ -74,15 +74,18 @@
                 </tr>
 
                 <tr>
-                    <td>Status</td>
-                    <td>
-                        <select name="status">
-                            <option <?php if($status=="Ordered"){echo "selected";} ?> value="Ordered">Ordered</option>
-                            <option <?php if($status=="On Delivery"){echo "selected";} ?> value="On Delivery">On Delivery</option>
-                            <option <?php if($status=="Delivered"){echo "selected";} ?> value="Delivered">Delivered</option>
-                            <option <?php if($status=="Cancelled"){echo "selected";} ?> value="Cancelled">Cancelled</option>
-                        </select>
-                    </td>
+
+    <td>Status</td>
+    <td>
+        <select name="status">
+            <option <?php if($status=="Ordered"){echo "selected";} ?> value="Ordered">Ordered</option>
+            <option <?php if($status=="On Delivery"){echo "selected";} ?> value="On Delivery">On Delivery</option>
+            <option <?php if($status=="Delivered"){echo "selected";} ?> value="Delivered">Delivered</option>
+            <option <?php if($status=="Cancelled"){echo "selected";} ?> value="Cancelled">Cancelled</option>
+        </select>
+    </td>
+</tr>
+
                 </tr>
 
                 <tr>
@@ -166,13 +169,13 @@
                 {
                     //Updated
                     $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
-                    header('./manage-order.php');
+                    header('../manage-order.php');
                 }
                 else
                 {
                     //Failed to Update
                     $_SESSION['update'] = "<div class='error'>Failed to Update Order.</div>";
-                    header('./manage-order.php');
+                    header('../manage-order.php');
                 }
             }
         ?>
