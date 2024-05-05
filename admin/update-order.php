@@ -165,18 +165,17 @@
 
                 //CHeck whether update or not
                 //And REdirect to Manage Order with Message
-                if($res2==true)
-                {
+                if ($res2 == true) {
                     //Updated
                     $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
-                    header('../manage-order.php');
-                }
-                else
-                {
+                    header('location: manage-order.php'); // Corrected redirection
+                    exit; // Always exit after redirection
+                } else {
                     //Failed to Update
                     $_SESSION['update'] = "<div class='error'>Failed to Update Order.</div>";
-                    header('../manage-order.php');
-                }
+                    header('location: manage-order.php'); // Corrected redirection
+                    exit; // Always exit after redirection
+                }                
             }
         ?>
     </div>

@@ -64,22 +64,23 @@
             </tr>
 
             <tr>
-                <td>Current Image: </td>
-                <td>
-                    <?php 
-                        if($current_image == "")
-                        {
-                            //Image not Available 
-                            echo "<div class='error'>Image not Available.</div>";
-                        }
-                        else
-                        {
-                            //Image Available
-                            ?>
-                            <img src="<?php echo SITEURL; ?>images/food/<?php echo $current_image; ?>" width="150px">
-                            <?php
-                        }
-                    ?>
+            <td>Current Image: </td>
+<td>
+    <?php 
+        if($current_image == "") {
+            // Image not Available 
+            echo "<div class='error'>Image not Available.</div>";
+        } else {
+            // Image Available
+            ?>
+            <img src="<?php echo SITEURL; ?>/images/food/<?php echo $current_image; ?>" width="150px">
+            <?php
+        }
+    ?>
+</td>
+
+</td>
+
                 </td>
             </tr>
 

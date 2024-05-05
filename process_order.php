@@ -1,50 +1,45 @@
+
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-}
+session_start();
+require_once('config/constants.php'); // Include your database connection file
 
-require_once('config/constants.php');
-
-// Check if the form is submitted
-if(isset($_POST['submit'])) {
-    // Validate quantity
-    $qty = $_POST['qty'];
-    if ($qty <= 0) {
-        echo "Error: Quantity must be greater than 0";
-        exit;
-    }
-    
-    // Get order details
-    $food = $_POST['food'];
+if (isset($_POST['submit'])) {
+    // Get form data
+    $food_title = $_POST['food'];
     $price = $_POST['price'];
     $qty = $_POST['qty'];
-    $total = $price * $qty;
-    $order_date = date("Y-m-d H:i:s");
-    $status = "Ordered";
-    $customer_name = $_POST['full-name'];
-    $customer_contact = $_POST['contact'];
-    $customer_address = $_POST['address'];
+    $full_name = $_POST['full-name'];
+    $contact = $_POST['contact'];
+    $address = $_POST['address'];
 
-    // Include database connection file
-    require_once('config/db_connect.php');
+    // Get current date and time
+    $order_date_time = date("Y-m-d H:i:s"); // Format: YYYY-MM-DD HH:MM:SS
 
     // Insert order into database
-    $sql = "INSERT INTO tbl_order (food, price, qty, total, order_date, status, customer_name, customer_contact, customer_address) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO tbl_order (food_title, price, qty, full_name, contact, address, order_date_time) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "siiisssss", $food, $price, $qty, $total, $order_date, $status, $customer_name, $customer_contact, $customer_address);
-    $result = mysqli_stmt_execute($stmt);
-    
-    if ($result) {
-        // Redirect to order success page
-        header('location: order_success.php');
+    mysqli_stmt_bind_param($stmt, "siiisss", $food_title, $price, $qty, $full_name, $contact, $address, $order_date_time);
+    mysqli_stmt_execute($stmt);
+
+    if (mysqli_stmt_affected_rows($stmt) > 0) {
+        // Order placed successfully
+        $_SESSION['success'] = "Order placed successfully!";
+        header('location: foods.php');
         exit;
     } else {
-        echo "<script>alert('Error inserting order: " . mysqli_error($conn) . "');</script>";
+        // Error placing order
+        $_SESSION['error'] = "Error placing order. Please try again.";
+        header('location: order_page.php'); // Redirect back to order page or display error message
+        exit;
     }
+
+    // Close statement and database connection
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 } else {
-    // If form is not submitted, redirect to homepage or display error message
-    header('location: index.php');
+    // Redirect if form is not submitted
+    header('location: login.php');
     exit;
 }
 ?>
