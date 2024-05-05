@@ -72,8 +72,9 @@
             echo "<div class='error'>Image not Available.</div>";
         } else {
             // Image Available
+            
             ?>
-            <img src="<?php echo SITEURL; ?>/images/food/<?php echo $current_image; ?>" width="150px">
+            <img src="<?php echo SITEURL; ?>/images/food/<?php echo $image_name; ?>" width="150px">
             <?php
         }
     ?>
