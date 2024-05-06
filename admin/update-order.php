@@ -103,13 +103,6 @@
                 </tr>
 
                 <tr>
-                    <td>Customer Email: </td>
-                    <td>
-                        <input type="text" name="customer_email" value="<?php echo $customer_email; ?>">
-                    </td>
-                </tr>
-
-                <tr>
                     <td>Customer Address: </td>
                     <td>
                         <textarea name="customer_address" cols="30" rows="5"><?php echo $customer_address; ?></textarea>
@@ -130,53 +123,51 @@
 
 
         <?php 
-            //CHeck whether Update Button is Clicked or Not
-            if(isset($_POST['submit']))
-            {
-                //echo "Clicked";
-                //Get All the Values from Form
-                $id = $_POST['id'];
-                $price = $_POST['price'];
-                $qty = $_POST['qty'];
+            
+    // Check whether Update Button is Clicked or Not
+    if(isset($_POST['submit']))
+{
+    // Get All the Values from Form
+    $id = $_POST['id'];
+    $price = $_POST['price'];
+    $qty = $_POST['qty'];
 
-                $total = $price * $qty;
+    $total = $price * $qty;
 
-                $status = $_POST['status'];
+    $status = $_POST['status'];
 
-                $customer_name = $_POST['customer_name'];
-                $customer_contact = $_POST['customer_contact'];
-                $customer_email = $_POST['customer_email'];
-                $customer_address = $_POST['customer_address'];
+    $customer_name = $_POST['customer_name'];
+    $customer_contact = $_POST['customer_contact'];
+    
+    $customer_address = $_POST['customer_address'];
 
-                //Update the Values
-                $sql2 = "UPDATE tbl_order SET 
-                    qty = $qty,
-                    total = $total,
-                    status = '$status',
-                    customer_name = '$customer_name',
-                    customer_contact = '$customer_contact',
-                    customer_email = '$customer_email',
-                    customer_address = '$customer_address'
-                    WHERE id=$id
-                ";
+    // Update the Values
+    $sql2 = "UPDATE tbl_order SET 
+        qty = $qty,
+        total = $total,
+        status = '$status',
+        customer_name = '$customer_name',
+        customer_contact = '$customer_contact',
+        customer_address = '$customer_address',  -- Comma added here
+        WHERE id=$id
+    ";
 
-                //Execute the Query
-                $res2 = mysqli_query($conn, $sql2);
+    // Execute the Query
+    $res2 = mysqli_query($conn, $sql2);
 
-                //CHeck whether update or not
-                //And REdirect to Manage Order with Message
-                if ($res2 == true) {
-                    //Updated
-                    $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
-                    header('location: manage-order.php'); // Corrected redirection
-                    exit; // Always exit after redirection
-                } else {
-                    //Failed to Update
-                    $_SESSION['update'] = "<div class='error'>Failed to Update Order.</div>";
-                    header('location: manage-order.php'); // Corrected redirection
-                    exit; // Always exit after redirection
-                }                
-            }
-        ?>
-    </div>
+    // Check whether update or not
+    if ($res2 == true) {
+        // Updated
+        $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
+        header('location: manage-order.php');
+        exit;
+    } else {
+        // Failed to Update
+        $_SESSION['update'] = "<div class='error'>Failed to Update Order.</div>";
+        header('location: manage-order.php');
+        exit;
+    }                
+} 
+?>
+</div>
 </div>
