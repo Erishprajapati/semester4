@@ -53,7 +53,7 @@
         <br><br>
 
                 <!-- Button to Add Admin -->
-                <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
+                <a href="/semesterfour/fourth/admin/add-category.php" class="btn-primary">Add Category</a>
 
 
                 <br /><br /><br />
@@ -107,7 +107,7 @@
 if($image_name != "") {
     // Display the Image
     ?>
-    <img src="<?php echo SITEURL; ?>../images/category/<?php echo $image_name; ?>" width="100px">
+    <img src="../images/category/<?php echo $image_name; ?>" width="100px">
     <?php
 } else {
     // Display the Message
@@ -120,8 +120,8 @@ if($image_name != "") {
                                         <td><?php echo $featured; ?></td>
                                         <td><?php echo $active; ?></td>
                                         <td>
-                                         <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>" class="btn-secondary">Update Category</a>
-                                        <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Category</a>
+                                         <a href="http://localhost/semesterfour/fourth/admin/update-category.php?id=<?php echo $id; ?>" class="btn-secondary">Update Category</a>
+                                        <a href="http://localhost/semesterfour/fourth/admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Category</a>
                                         </td>
                                     </tr>
 
