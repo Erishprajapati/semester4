@@ -14,7 +14,14 @@ if (isset($_POST['submit'])) {
 
     // Get current date and time
     $order_date_time = date("Y-m-d H:i:s"); // Format: YYYY-MM-DD HH:MM:SS
-
+    $sql = "INSERT INTO tbl_order (food_title, price, qty, full_name, contact, address, order_date_time) 
+    values ('$food_title', '$price', '$qty', '$full_name', '$contact', '$address', '$order_date_time')";
+    $result = mysqli_query($conn, $sql);
+    if ($result){
+        echo "order placed successfully";
+    // $sql = "INSERT INTO tbl_order (food_title, price, qty, full_name, contact, address, order_date_time) 
+     }
+/*
     // Insert order into database
     $sql = "INSERT INTO tbl_order (food_title, price, qty, full_name, contact, address, order_date_time) 
             VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -37,6 +44,7 @@ if (isset($_POST['submit'])) {
     // Close statement and database connection
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
+    */
 } else {
     // Redirect if form is not submitted
     header('location: login.php');

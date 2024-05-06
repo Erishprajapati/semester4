@@ -1,3 +1,4 @@
+
 <?php include('partials/menu.php'); ?>
 
 <?php 
@@ -64,23 +65,22 @@
             </tr>
 
             <tr>
-            <td>Current Image: </td>
-<td>
-    <?php 
-        if($current_image == "") {
-            // Image not Available 
-            echo "<div class='error'>Image not Available.</div>";
-        } else {
-            // Image Available
-            ?>
-            <img src="<?php echo SITEURL; ?>/images/food/<?php echo $current_image; ?>" width="150px">
-            <?php
-        }
-    ?>
-</td>
-
-</td>
-
+                <td>Current Image: </td>
+                <td>
+                    <?php 
+                        if($current_image == "")
+                        {
+                            //Image not Available 
+                            echo "<div class='error'>Image not Available.</div>";
+                        }
+                        else
+                        {
+                            //Image Available
+                            ?>
+                            <img src="<?php echo SITEURL; ?>images/food/<?php echo $current_image; ?>" width="150px">
+                            <?php
+                        }
+                    ?>
                 </td>
             </tr>
 
@@ -209,7 +209,7 @@
                             //FAiled to Upload
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload new Image.</div>";
                             //REdirect to Manage Food 
-                            header('location: admin/manage-food.php');
+                            header('location:'.SITEURL.'admin/manage-food.php');
                             //Stop the Process
                             die();
                         }
@@ -229,7 +229,7 @@
                                 //failed to remove current image
                                 $_SESSION['remove-failed'] = "<div class='error'>Faile to remove current image.</div>";
                                 //redirect to manage food
-                                header('location: admin/manage-food.php');
+                                header('location:'.SITEURL.'admin/manage-food.php');
                                 //stop the process
                                 die();
                             }
@@ -267,13 +267,13 @@
                 {
                     //Query Exectued and Food Updated
                     $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
-                    header('location: admin/manage-food.php');
+                    header('location:'.SITEURL.'admin/manage-food.php');
                 }
                 else
                 {
                     //Failed to Update Food
                     $_SESSION['update'] = "<div class='error'>Failed to Update Food.</div>";
-                    header('location: admin/manage-food.php');
+                    header('location:'.SITEURL.'admin/manage-food.php');
                 }
 
                 
@@ -283,3 +283,5 @@
 
     </div>
 </div>
+
+<?php include('partials/footer.php'); ?>
