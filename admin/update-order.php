@@ -123,10 +123,11 @@
 
 
         <?php 
-            
-    // Check whether Update Button is Clicked or Not
-    if(isset($_POST['submit']))
-{
+// Start the session
+session_start();
+
+// Check whether Update Button is Clicked or Not
+if(isset($_POST['submit'])) {
     // Get All the Values from Form
     $id = $_POST['id'];
     $price = $_POST['price'];
@@ -148,7 +149,7 @@
         status = '$status',
         customer_name = '$customer_name',
         customer_contact = '$customer_contact',
-        customer_address = '$customer_address',  -- Comma added here
+        customer_address = '$customer_address'
         WHERE id=$id
     ";
 
@@ -156,14 +157,14 @@
     $res2 = mysqli_query($conn, $sql2);
 
     // Check whether update or not
-    if ($res2 == true) {
+    if ($res2) {
         // Updated
         $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
         header('location: manage-order.php');
         exit;
     } else {
         // Failed to Update
-        $_SESSION['update'] = "<div class='error'>Failed to Update Order.</div>";
+        $_SESSION['update'] = "<div class='error'>Failed to Update Order: " . mysqli_error($conn) . "</div>";
         header('location: manage-order.php');
         exit;
     }                
