@@ -77,7 +77,7 @@
                         {
                             //Image Available
                             ?>
-                            <img src="<?php echo SITEURL; ?>images/food/<?php echo $current_image; ?>" width="150px">
+                            <img src="../images/food/<?php echo $current_image; ?>" width="150px">
                             <?php
                         }
                     ?>
@@ -227,7 +227,7 @@
                             if($remove==false)
                             {
                                 //failed to remove current image
-                                $_SESSION['remove-failed'] = "<div class='error'>Faile to remove current image.</div>";
+                                $_SESSION['remove-failed'] = "<div class='error'>Failed to remove current image.</div>";
                                 //redirect to manage food
                                 header('location:'.SITEURL.'admin/manage-food.php');
                                 //stop the process
