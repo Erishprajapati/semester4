@@ -184,19 +184,19 @@ include('config/constants.php');
             $stmt2->execute();
 
             if($stmt2->affected_rows > 0)
-{
-    // Category Updated
-    $_SESSION['update'] = "<div class='success'>Category Updated Successfully.</div>";
-    header('Location: admin/manage-category.php');
-    exit();
-}
-else
-{
-    // Failed to update category
-    $_SESSION['update'] = "<div class='error'>Failed to Update Category.</div>";
-    header('Location: admin/manage-category.php');
-    exit();
-}
+            {
+                // Category Updated
+                $_SESSION['update'] = "<div class='success'>Category Updated Successfully.</div>";
+                header('Location: manage-category.php');
+                exit();
+            }
+            else
+            {
+                // Failed to update category
+                $_SESSION['update'] = "<div class='error'>Failed to Update Category.</div>";
+                header('Location: manage-category.php');
+                exit();
+            }
 
 
         }
