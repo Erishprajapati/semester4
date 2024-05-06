@@ -263,19 +263,16 @@
                 $res3 = mysqli_query($conn, $sql3);
 
                 //CHeck whether the query is executed or not 
-                if($res3==true)
-                {
-                    //Query Exectued and Food Updated
+                if ($res3 == true) {
+                    // Query Executed and Food Updated
                     $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
-                    header('location:'.SITEURL.'admin/manage-food.php');
-                }
-                else
-                {
-                    //Failed to Update Food
+                    header('location: /semesterfour/fourth/admin/manage-food.php'); // Relative path
+                } else {
+                    // Failed to Update Food
                     $_SESSION['update'] = "<div class='error'>Failed to Update Food.</div>";
-                    header('location:'.SITEURL.'admin/manage-food.php');
+                    header('location: /admin/manage-food.php'); // Relative path
                 }
-
+                
                 
             }
         
