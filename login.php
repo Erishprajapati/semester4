@@ -16,7 +16,7 @@ if(isset($_POST['login'])) {
         if($num > 0) { 
             $_SESSION['username'] = $username; 
             header("Location: ./admin/index.php");
-            exit();
+            exit(); 
         } else {
             echo "Invalid admin credentials";
         }
@@ -30,7 +30,7 @@ if(isset($_POST['login'])) {
             header("Location: ./index.php"); 
             exit(); 
         } else {
-            echo "Invalid credentials";
+            echo "failed to login";
         }
     } 
 }
