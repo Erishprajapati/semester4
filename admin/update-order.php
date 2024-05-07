@@ -4,10 +4,8 @@
     <div class="wrapper">
         <h1>Update Order</h1>
         <br><br>
-
-
-        <?php 
         
+        <?php
             //CHeck whether id is set or not
             if(isset($_GET['id']))
             {
