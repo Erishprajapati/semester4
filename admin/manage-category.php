@@ -131,8 +131,7 @@ if($image_name != "") {
                         }
                         else
                         {
-                            //WE do not have data
-                            //We'll display the message inside table
+                            
                             ?>
 
                             <tr>

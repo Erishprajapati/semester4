@@ -62,7 +62,7 @@ if(isset($_POST['login'])) {
                 <div class="form-group">
                     <label for="usertype">User Type</label>
                     <select name="usertype" id="usertype">
-                        <option value="1">Admin</option>
+                    
                         <option value="2">User</option>
                     </select>
                 </div>

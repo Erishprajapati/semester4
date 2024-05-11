@@ -55,7 +55,7 @@ if(isset($_GET['food_id'])) {
             <fieldset>
                 <legend>Delivery Details</legend>
                 <div class="order-label">Full Name</div>
-                <input type="text" name="full-name" placeholder="Full Name" class="input-responsive" required>
+                <input type="text" name="full-name" placeholder="Full Name" class="input-responsive" pattern="[A-Za-z]{1,30}" title="Please enter only alphabets and maximum 30 characters." required>
                 <div class="order-label">Phone Number</div>
                 <input type="tel" name="contact" placeholder="Phone Number" class="input-responsive" pattern="[0-9]{7,10}" title="Please enter a valid phone number with 7 to 10 digits" required>
                 <div class="order-label">Address</div>

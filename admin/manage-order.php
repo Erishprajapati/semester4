@@ -70,26 +70,8 @@
                                         <td><?php echo $order_date; ?></td>
 
                                         <td>
-                                            <?php 
-                                                // Ordered, On Delivery, Delivered, Cancelled
-
-                                                if($status=="Ordered")
-                                                {
-                                                    echo "<label>$status</label>";
-                                                }
-                                                elseif($status=="On Delivery")
-                                                {
-                                                    echo "<label style='color: orange;'>$status</label>";
-                                                }
-                                                elseif($status=="Delivered")
-                                                {
-                                                    echo "<label style='color: green;'>$status</label>";
-                                                }
-                                                elseif($status=="Cancelled")
-                                                {
-                                                    echo "<label style='color: red;'>$status</label>";
-                                                }
-                                            ?>
+                                           <?php echo $status;
+                                           ?>
                                         </td>
 
                                         <td><?php echo $customer_name; ?></td>

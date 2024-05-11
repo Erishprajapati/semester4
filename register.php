@@ -12,10 +12,10 @@
             <h1>Register</h1>
             <form method="POST">
             <div class="order-label">Username</div>
-            <input type="text" name="username" placeholder=" " class="input-responsive" required>
+            <input type="text" name="username" pattern="[a-zA-Z]{1,30}" title="Username must contain only alphabets and be up to 30 characters long" placeholder=" " class="input-responsive" required> 
 
             <div class="order-label">Phone Number</div>
-<input type="tel" name="contact" placeholder=" " class="input-responsive" pattern="[0-9]{7,10}" title="Please enter a valid phone number with 7 to 10 digits" required>
+           <input type="tel" name="contact" placeholder=" " class="input-responsive" pattern="[0-9]{7,10}" title="Please enter a valid phone number with 7 to 10 digits" required>
 
 
             <div class="order-label">Email</div>
