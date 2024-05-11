@@ -1,6 +1,6 @@
     <?php include('partials-front/menu.php'); ?>
 
-    <!-- fOOD sEARCH Section Starts Here -->
+    
     <section class="food-search text-center">
         <div class="container">
             
@@ -11,7 +11,7 @@
 
         </div>
     </section>
-    <!-- fOOD sEARCH Section Ends Here -->
+
 
     <?php 
         if(isset($_SESSION['order']))
@@ -21,7 +21,7 @@
         }
     ?>
 
-    <!-- CAtegories Section Starts Here -->
+   
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
@@ -82,8 +82,7 @@
             <div class="clearfix"></div>
         </div>
     </section>
-    <!-- Categories Section Ends Here -->
-
+   
 
 
     <!-- fOOD MEnu Section Starts Here -->
@@ -93,8 +92,6 @@
 
             <?php 
             
-            //Getting Foods from Database that are active and featured
-            //SQL Query
             $sql2 = "SELECT * FROM tbl_food WHERE active='Yes' AND featured='Yes' LIMIT 6";
 
             //Execute the Query
@@ -167,6 +164,6 @@
             <a href="foods.php">See All Foods</a>
         </p>
     </section>
-    <!-- fOOD Menu Section Ends Here -->
+
 
     
