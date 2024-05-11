@@ -1,71 +1,55 @@
-<?php 
-    //Include COnstants Page
+<?php
+    // Include Constants Page
     include('../config/constants.php');
 
-    //echo "Delete Food Page";
+    // Check if ID and Image Name are set
+    if(isset($_GET['id']) && isset($_GET['image_name'])) {
+        // Process Deletion
 
-    if(isset($_GET['id']) && isset($_GET['image_name'])) //Either use '&&' or 'AND'
-    {
-        //Process to Delete
-        //echo "Process to Delete";
-
-        //1.  Get ID and Image NAme
+        // Get ID and Image Name
         $id = $_GET['id'];
         $image_name = $_GET['image_name'];
 
-        //2. Remove the Image if Available
-        //CHeck whether the image is available or not and Delete only if available
-        if($image_name != "")
-        {
-            // IT has image and need to remove from folder
-            //Get the Image Path
-            $path = "./images/food/".$image_name;
+        // Remove the Image if Available
+        if($image_name != "") {
+            // Get the Image Path
+            $path = "../images/food/".$image_name;
 
-            //REmove Image File from Folder
-            $remove = unlink($path);
+            // Remove Image File from Folder
+            if(file_exists($path)) {
+                $remove = unlink($path);
 
-            //Check whether the image is removed or not
-            if($remove==false)
-            {
-                //Failed to Remove image
-                $_SESSION['upload'] = "<div class='error'>Failed to Remove Image File.</div>";
-                //REdirect to Manage Food
-                header('location:./manage-food.php');
-                //Stop the Process of Deleting Food
-                die();
+                // Check whether the image is removed or not
+                if(!$remove) {
+                    $_SESSION['upload'] = "<div class='error'>Failed to Remove Image File.</div>";
+                    header('location: ./manage-food.php');
+                    exit(); // Stop further execution
+                }
             }
-
         }
 
-        //3. Delete Food from Database
+        // Delete Food from Database
         $sql = "DELETE FROM tbl_food WHERE id=$id";
-        //Execute the Query
+
+        // Execute the Query
         $res = mysqli_query($conn, $sql);
 
-        //CHeck whether the query executed or not and set the session message respectively
-        //4. Redirect to Manage Food with Session Message
-        if($res==true)
-        {
-            //Food Deleted
-            $_SESSION['delete'] = "<div class='success'>Food Deleted Successfully.</div>";\
-            header('location:./manage-food.php');
+        // Check if the query executed successfully
+        if($res) {
+            // Food Deleted
+            $_SESSION['delete'] = "<div class='success'>Food Deleted Successfully.</div>";
+            header('location: ./manage-food.php');
+            exit(); // Stop further execution
+        } else {
+            // Failed to Delete Food
+            $_SESSION['delete'] = "<div class='error'>Failed to Delete Food.</div>";
+            header('location: ./manage-food.php');
+            exit(); // Stop further execution
         }
-        else
-        {
-            //Failed to Delete Food
-            $_SESSION['delete'] = "<div class='error'>Failed to Delete Food.</div>";\
-            header('location:./manage-food.php');
-        }
-
-        
-
-    }
-    else
-    {
-        //Redirect to Manage Food Page
-        //echo "REdirect";
+    } else {
+        // Redirect to Manage Food Page if ID or Image Name is not set
         $_SESSION['unauthorize'] = "<div class='error'>Unauthorized Access.</div>";
-        header('location:./manage-food.php');
+        header('location: ./manage-food.php');
+        exit(); // Stop further execution
     }
-
 ?>
