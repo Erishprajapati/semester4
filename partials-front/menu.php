@@ -32,7 +32,9 @@
                     <li>
                         <a href="foods.php">Foods</a>
                     </li>
-                    
+                    <li>
+                        <a href="logout.php">logout</a>
+                    </li>
                 </ul>
             </div>
 
