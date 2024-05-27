@@ -24,8 +24,7 @@
                 //Check whether we have admin data or not
                 if($count==1)
                 {
-                    // Get the Details
-                    //echo "Admin Available";
+
                     $row=mysqli_fetch_assoc($res);
 
                     $full_name = $row['full_name'];
@@ -95,16 +94,16 @@
         //Check whether the query executed successfully or not
         if($res==true)
         {
-            //Query Executed and Admin Updated
+        
             $_SESSION['update'] = "<div class='success'>Admin Updated Successfully.</div>";
-            //Redirect to Manage Admin Page
+           
             header('location: ./manage-admin.php');
         }
         else
         {
             //Failed to Update Admin
             $_SESSION['update'] = "<div class='error'>Failed to Delete Admin.</div>";
-            //Redirect to Manage Admin Page
+            
             header('location: ./manage-admin.php');
         }
     }

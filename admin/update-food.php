@@ -188,22 +188,20 @@
                     //CHeck whether th file is available or not
                     if($image_name!="")
                     {
-                        //IMage is Available
-                        //A. Uploading New Image
+                        
 
                         //REname the Image
                         $ext = end(explode('.', $image_name)); //Gets the extension of the image
 
                         $image_name = "Food-Name-".rand(0000, 9999).'.'.$ext; //THis will be renamed image
 
-                        //Get the Source Path and DEstination PAth
+                        
                         $src_path = $_FILES['image']['tmp_name']; //Source Path
                         $dest_path = "../images/food/".$image_name; //DEstination Path
 
-                        //Upload the image
+                       
                         $upload = move_uploaded_file($src_path, $dest_path);
 
-                        /// CHeck whether the image is uploaded or not
                         if($upload==false)
                         {
                             //FAiled to Upload
@@ -213,8 +211,7 @@
                             //Stop the Process
                             die();
                         }
-                        //3. Remove the image if new image is uploaded and current image exists
-                        //B. Remove current Image if Available
+                        
                         if($current_image!="")
                         {
                             //Current Image is Available
@@ -245,40 +242,29 @@
                     $image_name = $current_image; //Default Image when Button is not Clicked
                 }
 
-                
+                $sql = "UPDATE tbl_food SET 
+                title = '$title',
+                description = '$description',
+                price = $price,
+                image_name = '$image_name',
+                category_id = '$category',
+                featured = '$featured',
+                active = '$active'
+                WHERE id=$id";
 
-                //4. Update the Food in Database
-                $sql3 = "UPDATE tbl_food SET 
-                    title = '$title',
-                    description = '$description',
-                    price = $price,
-                    image_name = '$image_name',
-                    category_id = '$category',
-                    featured = '$featured',
-                    active = '$active'
-                    WHERE id=$id
-                ";
+            $res = mysqli_query($conn, $sql);
 
-                //Execute the SQL Query
-                $res3 = mysqli_query($conn, $sql3);
-
-                //CHeck whether the query is executed or not 
-                if ($res3 == true) {
-                    // Query Executed and Food Updated
-                    $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
-                    header('location: /semesterfour/fourth/admin/manage-food.php'); // Relative path
-                } else {
-                    // Failed to Update Food
-                    $_SESSION['update'] = "<div class='error'>Failed to Update Food.</div>";
-                    header('location: /admin/manage-food.php'); // Relative path
-                }
-                
-                
+            if($res) {
+                $_SESSION['update'] = "<div class='success'>Food updated successfully.</div>";
+            } else {
+                $_SESSION['update'] = "<div class='error'>Failed to update food.</div>";
             }
-        
-        ?>
 
-    </div>
+            header('location: /semesterfour/fourth/admin/manage-food.php');
+            exit(); // Stop execution
+        }
+    ?>
+
+</div>
 </div>
 
-<?php include('partials/footer.php'); ?>
