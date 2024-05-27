@@ -32,10 +32,11 @@
                     </td>
                 </tr>
 
+                
                 <tr>
                     <td>Price: </td>
                     <td>
-                        <input type="number" name="price">
+                        <input type="number" name="price" min="0">
                     </td>
                 </tr>
 
