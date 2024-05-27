@@ -6,24 +6,22 @@
         <br><br>
         
         <?php
-            //CHeck whether id is set or not
-            if(isset($_GET['id']))
-            {
-                //GEt the Order Details
-                $id=$_GET['id'];
+            // Check whether id is set or not
+            if(isset($_GET['id'])) {
+                // Get the Order Details
+                $id = $_GET['id'];
 
-                //Get all other details based on this id
-                //SQL Query to get the order details
+                // Get all other details based on this id
+                // SQL Query to get the order details
                 $sql = "SELECT * FROM tbl_order WHERE id=$id";
-                //Execute Query
+                // Execute Query
                 $res = mysqli_query($conn, $sql);
-                //Count Rows
+                // Count Rows
                 $count = mysqli_num_rows($res);
 
-                if($count==1)
-                {
-                    //Detail Availble
-                    $row=mysqli_fetch_assoc($res);
+                if($count == 1) {
+                    // Detail Available
+                    $row = mysqli_fetch_assoc($res);
 
                     $food = $row['food'];
                     $price = $row['price'];
@@ -32,25 +30,21 @@
                     $customer_name = $row['customer_name'];
                     $customer_contact = $row['customer_contact'];
                     $customer_email = $row['customer_email'];
-                    $customer_address= $row['customer_address'];
+                    $customer_address = $row['customer_address'];
+                } else {
+                    // Detail not Available
+                    // Redirect to Manage Order
+                    header('location: manage-order.php');
+                    exit();
                 }
-                else
-                {
-                    //DEtail not Available/
-                    //Redirect to Manage Order
-                    header('./manage-order.php');
-                }
+            } else {
+                // Redirect to Manage Order Page
+                header('location: manage-order.php');
+                exit();
             }
-            else
-            {
-                //REdirect to Manage ORder PAge
-                header('./manage-order.php');
-            }
-        
         ?>
 
         <form action="" method="POST">
-        
             <table class="tbl-30">
                 <tr>
                     <td>Food Name</td>
@@ -59,9 +53,7 @@
 
                 <tr>
                     <td>Price</td>
-                    <td>
-                        <b> Rs <?php echo $price; ?></b>
-                    </td>
+                    <td><b> Rs <?php echo $price; ?></b></td>
                 </tr>
 
                 <tr>
@@ -72,111 +64,109 @@
                 </tr>
 
                 <tr>
-
-                <td>Status</td>
-<td>
-    <select name="status">
-        <option <?php if($status=="Ordered"){echo "selected";} ?> value="Ordered" <?php if($status=="Delivered" || $status=="Cancelled"){echo "disabled";} ?>>Ordered</option>
-        <option <?php if($status=="On Delivery"){echo "selected";} ?> value="On Delivery" <?php if($status=="Delivered" || $status=="Cancelled"){echo "disabled";} ?>>On Delivery</option>
-        <option <?php if($status=="Delivered"){echo "selected";} ?> value="Delivered">Delivered</option>
-        <option <?php if($status=="Cancelled"){echo "selected";} ?> value="Cancelled">Cancelled</option>
-    </select>
-</td>
-</tr>
-
+                    <td>Status</td>
+                    <td>
+                        <select name="status" <?php if($status == "Delivered" || $status == "Cancelled") echo 'disabled'; ?>>
+                            <option <?php if($status=="Ordered"){echo "selected";} ?> value="Ordered">Ordered</option>
+                            <option <?php if($status=="On Delivery"){echo "selected";} ?> value="On Delivery">On Delivery</option>
+                            <option <?php if($status=="Delivered"){echo "selected";} ?> value="Delivered">Delivered</option>
+                            <option <?php if($status=="Cancelled"){echo "selected";} ?> value="Cancelled">Cancelled</option>
+                        </select>
+                    </td>
                 </tr>
 
                 <tr>
-                    <td>Customer Name: </td>
+                    <td>Customer Name:</td>
                     <td>
                         <input type="text" name="customer_name" value="<?php echo $customer_name; ?>">
                     </td>
                 </tr>
 
                 <tr>
-                    <td>Customer Contact: </td>
+                    <td>Customer Contact:</td>
                     <td>
                         <input type="text" name="customer_contact" value="<?php echo $customer_contact; ?>">
                     </td>
                 </tr>
 
                 <tr>
-                    <td>Customer Address: </td>
+                    <td>Customer Address:</td>
                     <td>
                         <textarea name="customer_address" cols="30" rows="5"><?php echo $customer_address; ?></textarea>
                     </td>
                 </tr>
 
                 <tr>
-                    <td clospan="2">
+                    <td colspan="2">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="price" value="<?php echo $price; ?>">
+                        <input type="hidden" name="qty" value="<?php echo $qty; ?>">
 
-                        <input type="submit" name="submit" value="Update Order" class="btn-secondary">
+                        <input type="submit" name="submit" value="Update Order" class="btn-secondary" <?php if($status == "Delivered" || $status == "Cancelled") echo 'disabled'; ?>>
                     </td>
                 </tr>
             </table>
-        
         </form>
 
         <?php 
-// Start the session
-session_start();
+        // Start the session
+        session_start();
 
-// Check whether Update Button is Clicked or Not
-if(isset($_POST['submit'])) {
-    // Get All the Values from Form
-    $id = $_POST['id'];
-    $price = $_POST['price'];
-    $qty = $_POST['qty'];
+        // Check whether Update Button is Clicked or Not
+        if(isset($_POST['submit'])) {
+            // Get All the Values from Form
+            $id = $_POST['id'];
+            $price = $_POST['price'];
+            $qty = $_POST['qty'];
+            $total = $price * $qty;
+            $status = $_POST['status'];
+            $customer_name = $_POST['customer_name'];
+            $customer_contact = $_POST['customer_contact'];
+            $customer_address = $_POST['customer_address'];
 
-    $total = $price * $qty;
+            // Fetch the current status from the database
+            $sql_check = "SELECT status FROM tbl_order WHERE id=$id";
+            $res_check = mysqli_query($conn, $sql_check);
+            $row = mysqli_fetch_assoc($res_check);
+            $current_status = $row['status'];
 
-    $status = $_POST['status'];
+            // Check if the status can be updated
+            if ($current_status == "Delivered" || $current_status == "Cancelled") {
+                // Prevent update if the status is Delivered or Cancelled
+                $_SESSION['update'] = "<div class='error'>Status can't be changed once it is Delivered or Cancelled.</div>";
+                header('location: manage-order.php');
+                exit();
+            } else {
+                // Update the Values
+                $sql2 = "UPDATE tbl_order SET 
+                    qty = $qty,
+                    total = $total,
+                    status = '$status',
+                    customer_name = '$customer_name',
+                    customer_contact = '$customer_contact',
+                    customer_address = '$customer_address'
+                    WHERE id=$id
+                ";
 
-    $customer_name = $_POST['customer_name'];
-    $customer_contact = $_POST['customer_contact'];
-    $customer_address = $_POST['customer_address'];
+                // Execute the Query
+                $res2 = mysqli_query($conn, $sql2);
 
-    // Fetch the current status from the database
-    $sql_check = "SELECT status FROM tbl_order WHERE id=$id";
-    $res_check = mysqli_query($conn, $sql_check);
-    $row = mysqli_fetch_assoc($res_check);
-    $current_status = $row['status'];
+                // Check whether update or not
+                if ($res2) {
+                    // Updated
+                    $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
+                    header('location: manage-order.php');
+                    exit();
+                } else {
+                    // Failed to Update
+                    $_SESSION['update'] = "<div class='error'>Failed to Update Order: " . mysqli_error($conn) . "</div>";
+                    header('location: manage-order.php');
+                    exit();
+                }
+            }                
+        } 
+        ?>
+    </div>
+</div>
 
-    // Check if the status can be updated
-    if (($current_status == "Delivered" || $current_status == "Cancelled") && ($status == "Ordered" || $status == "On Delivery")) {
-        // Cannot update to Ordered or On Delivery
-        $_SESSION['update'] = "<div class='error'>Cannot change status back to Ordered or On Delivery once it is Delivered or Cancelled.</div>";
-        header('location: manage-order.php');
-        exit;
-    } else {
-        // Update the Values
-        $sql2 = "UPDATE tbl_order SET 
-            qty = $qty,
-            total = $total,
-            status = '$status',
-            customer_name = '$customer_name',
-            customer_contact = '$customer_contact',
-            customer_address = '$customer_address'
-            WHERE id=$id
-        ";
-
-        // Execute the Query
-        $res2 = mysqli_query($conn, $sql2);
-
-        // Check whether update or not
-        if ($res2) {
-            // Updated
-            $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
-            header('location: manage-order.php');
-            exit;
-        } else {
-            // Failed to Update
-            $_SESSION['update'] = "<div class='error'>Failed to Update Order: " . mysqli_error($conn) . "</div>";
-            header('location: manage-order.php');
-            exit;
-        }
-    }                
-} 
-?>
+<?php include('partials/footer.php'); ?>
